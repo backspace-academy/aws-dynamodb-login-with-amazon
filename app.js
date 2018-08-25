@@ -79,7 +79,7 @@
 			console.log(JSON.stringify(userProfile.CustomerId));
  			var params = {
   				Item: {
-   					'CustomerId': {
+   					'Customer': {
 						S: userProfile.CustomerId
 					}, 
 					'Email': {
