@@ -93,7 +93,7 @@
 					}
 				},
 				ReturnConsumedCapacity: 'TOTAL', 
-				TableName: 'amazon-login-test-table'
+				TableName: 'login-with-amazon-test'
 			};
 			dynamodb.putItem(params, function(err, data) {
    				if (err) {
