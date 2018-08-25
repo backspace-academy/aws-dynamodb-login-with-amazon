@@ -1,1 +1,1 @@
-# aws-dynamodb-login-with-amazon
+# Federated Identity for DynamoDB using Login with Amazon
