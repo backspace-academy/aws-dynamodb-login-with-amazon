@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>BackSpace Academy DynamoDB</title>
+</head>
+
+<body>
+	<!-- Load Login with Amazon JavaScript SDK -->
+	<div id="amazon-root"></div>
+	<script type="text/javascript">
+	 	window.onAmazonLoginReady = function() {
+			// Put your Login with Amazon Client ID in here
+			amazon.Login.setClientId('YOUR-CLIENT-ID-GOES-HERE');
+	  	};
+		(function(d) {
+			var a = d.createElement('script'); a.type = 'text/javascript';
+			a.async = true; a.id = 'amazon-login-sdk';
+			a.src = 'https://assets.loginwithamazon.com/sdk/na/login1.js';
+			d.getElementById('amazon-root').appendChild(a);
+	  	})(document);
+	</script>
+
+	<!-- Login with Amazon button -->
+	<a href="#" id="LoginWithAmazon">
+		<img border="0" alt="Login with Amazon"
+			src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png"
+			width="156" height="32" />
+	</a>
+	<br>
+	
+	<!-- Logout button -->
+	<button id="Logout">Logout</button>
+
+	<!-- DynamoDB button -->
+	<button id="writeDB">Write to DynamoDB</button>
+	
+    <!-- Code placed at the end of the document so the pages load faster -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"> </script>
+	
+	<!-- AWS JavaScript SDK -->
+	<script src="https://sdk.amazonaws.com/js/aws-sdk-2.300.0.min.js"></script>
+	
+	<!-- App Code -->
+	<script src="app.js"></script>
+
+	
+</body>
+</html>
