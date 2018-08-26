@@ -12,7 +12,7 @@
 
 	// Click event listeners for buttons
 	$('#LoginWithAmazon').click(function() {
-	  loginWithAmazon();
+		loginWithAmazon();
 	});
 	$('#Logout').click(function() {
 		amazon.Login.logout();
