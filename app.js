@@ -6,21 +6,20 @@
 	AWS.config.region = 'us-east-1';
 	// Insert your IAM role arn here
 	var roleArn = 'YOUR-ROLE-ARN-GOES-HERE';
-	
+
 	var userLoggedIn = false;
 	var accessToken, userProfile, dynamodb;
-	
+
 	// Click event listeners for buttons
 	$('#LoginWithAmazon').click(function() {
-	  	loginWithAmazon();
+	  loginWithAmazon();
 	});
 	$('#Logout').click(function() {
-		logoutAWS();
 		amazon.Login.logout();
 	});
 	$('#writeDB').click(function() {
 		writeDynamoDB();
-	});	
+	});
 
 	//Login with Amazon code
 	function loginWithAmazon(){
@@ -56,7 +55,7 @@
       		RoleArn: roleArn,
       		WebIdentityToken: accessToken
   		});
-		
+
 		//refreshes credentials
 		AWS.config.credentials.refresh((error) => {
 			if (error) {
@@ -81,7 +80,7 @@
   				Item: {
    					'Customer': {
 						S: userProfile.CustomerId
-					}, 
+					},
 					'Email': {
 						S: userProfile.PrimaryEmail
 					},
@@ -92,7 +91,7 @@
 						N: '0'
 					}
 				},
-				ReturnConsumedCapacity: 'TOTAL', 
+				ReturnConsumedCapacity: 'TOTAL',
 				TableName: 'login-with-amazon-test'
 			};
 			dynamodb.putItem(params, function(err, data) {
@@ -108,17 +107,6 @@
 			alert('You are not logged in!');
 		}
 		return false;
-	}
-
-	//Logout code
-	function logoutAWS(){
-		if (userLoggedIn){
-			console.log('Revoking AWS credentials');
-		}
-		else {
-			alert('You are not logged in!');
-		}
-		return false;			
 	}
 
 	// End 	self-invoking anonymous function
